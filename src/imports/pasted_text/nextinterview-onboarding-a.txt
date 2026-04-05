@@ -1,0 +1,147 @@
+ROLE
+You are a principal mobile product designer + design-systems lead. Produce a cohesive, production-grade iOS UI suite (iPhone 15 Pro, iOS 17+ HIG). Output must read as top‑tier craft: disciplined hierarchy, token-driven spacing/type, complete states, and implementable structure—not decorative noise.
+CANVAS / VIEWPORT / SCROLL CONTRACT (CRITICAL — RORK + STITCH)
+One frame = one iPhone screen, not a tall landing page. Artboard: iPhone 15 Pro portrait (logical ~393×852 safe area). Do not output “infinitely tall” posters or multi-screen-length vertical stacks in a single image.
+Above-the-fold discipline: In every frame, the primary CTA (Continue / Purchase / Tailor) must sit in the thumb zone above the home indicator—either visible without scrolling or on a sticky bottom bar inside the same screen composition (design as SafeAreaView + sticky footer in implementation terms).
+Scrolling is allowed but bounded: If content exceeds one viewport, design as (1) visible first viewport + (2) subtle scroll affordance (fade mask / “More below” chevron / shortened copy)—NOT full long-form article height in one export. Prefer trimmed placeholder copy over cramming entire resume paragraphs.
+No duplicate chrome in one frame: One bottom floating tab bar or onboarding step chrome—not both unless the tab bar is intentionally ghosted/disabled with annotation.
+Onboarding frames (A–C, optional P): Do not show the main app tab bar—onboarding is full-bleed until user reaches Home.
+Comparison / proof screens: Do not stack huge “Original” + huge “Rewritten” + long social proof in one endless column. Prefer segmented control “Original | Rewritten,” horizontal pager cards, collapsible “3 changes”, or two compact columns with truncated text (2–3 lines) + “View full” in a sheet.
+Stitch export intent: Each screen image must look like what a user sees when opening that route on a phone—so Rork can map 1:1 to ScrollView regions + sticky actions.
+If overflow is required: add a second frame named …ScrollState instead of stretching one image.
+BRAND
+App name: NextInterview
+Tagline (use on Home + onboarding where appropriate): “Tailor your resume for the role—then walk into your next interview with confidence.”
+Voice: encouraging, calm, professional—speaks to momentum (“next step,” “closer to the interview,” “stronger fit”) without hype or desperation.
+REFERENCE PRODUCT (IA + FEATURES ONLY, NOT VISUAL CLONE)
+Use the category pattern of apps like “AI Resume Tailor” (resume tailoring to job descriptions, credits-based monetization, before/after comparison) as a functional reference only. You are designing NextInterview—do not copy competitor pixels, colors, layouts, or typography. Preserve the product logic and navigation patterns.
+PRODUCT DEFINITION (NEXTINTERVIEW)
+Core job: User provides JOB DESCRIPTION + RESUME TEXT → AI processes → user reviews ORIGINAL vs REWRITTEN (scrollable in-app; preview stays compact in designs).
+User outcome framing: every screen whispers the “why”—a tighter match to the posting → clearer story in interviews → better odds of getting to the next round.
+Monetization: Consumable CREDITS. Rule: 1 credit = 1 full rewrite. Show balance, “used,” purchase packs, and honest policy copy.
+App structure: 3-tab floating pill Tab Bar — Home | History | Credits (tabs appear from Home onward, not on onboarding).
+Tone: encouraging + trustworthy + career-focused; confident, non-hype.
+ONBOARDING & PRODUCT STORY (APPLY THESE LESSONS TO EVERY ONBOARDING FRAME)
+Benefit before feature: headlines state the OUTCOME first; body explains mechanism second (AI, compare, credits).
+One job per screen: exactly ONE primary CTA per onboarding step; secondary only as text-style Skip—never two equal-weight buttons.
+Visual anchor: Use one recurring mark across onboarding—the NextInterview owl (see MASCOT SPEC below). Optional tiny supporting icons (checklist, doc) may appear only as SF-style 20/24pt accents; they must not introduce a second illustration style or a second “character.”
+Mascot / character moment (lightweight): On onboarding A and B only, include the same owl (identical to MASCOT SPEC—not a redraw or “similar” owl) with one short speech bubble (max 12 words, benefit-first, e.g. “You’ll see changes side-by-side before you pay.”). Hard cap: mascot + bubble together ≤ ~18% of viewport height; must not push primary CTA out of thumb zone—if tight, shrink mascot before removing CTA visibility.
+Cross-frame consistency (CRITICAL): Wherever the owl appears (A, B, and any other frame you choose to show it—e.g. empty states, errors, optional P), it must be recognizably the identical character: same head/disc shape, ear tufts (or lack thereof—lock one), eye size and spacing, beak angle, body proportions, briefcase size, angle, and handle, wing simplification, and the same 2.0px stroke / fill rules as icons. Do not vary species, props (always the same mini-briefcase), or art style between screens. Pose may change slightly (e.g. wing lift, neutral stand) but silhouette + beak + eyes + briefcase grammar stay locked.
+Proof / clarity early: by end of step B, user understands tangible deliverable (Original vs Rewritten + copy/share)—compact layout per VIEWPORT CONTRACT.
+Trust before friction: plain-language reassurance before paywall (what pasted text is used for—honest copy only).
+Unlock, not homework: credits unlock a concrete step (“1 credit = 1 full rewrite for this job”).
+Light personalization (optional P): 2–3 chips + Skip—must not block Home.
+Paywall as final chapter: value story first; pack selection after or skippable with zero-credits gate.
+Retention in narrative: History = saved versions for the next application.
+Cohesion: onboarding uses SAME tokens, type, radii, accents as the rest of the app.
+MASCOT SPEC — “NOA” THE OWL + MINI-BRIEFCASE (NEXTINTERVIEW)
+Lock this so Stitch/Rork can reuse one asset mental model:
+Character: A smart, prepared owl—adult-professional, calm confidence. Study/career tone via geometry + briefcase, not cartoons, graduation caps, or baby proportions.
+Construction language: Simple circles + triangles only (plus rounded rects for briefcase). No feather texture, no gradients on the mascot, no glossy eyes—flat fills + strokes like SF-style icons.
+Silhouette (bold geometric):
+Head/body: One large circle or slightly flattened circle for the head; body is a smaller circle or rounded trapezoid tucked under (or a single merged “pear” of two circles)—pick one fusion style and keep it on every frame.
+Ear tufts: Two small upward triangles on top of the head OR smooth head with no tufts—choose tufts ON everywhere (recommended for “owl” read at small size). Same height, same outward angle every time.
+Eyes: Two identical circles (slightly large for warmth but not “googly”); tiny solid pupils centered or slightly inward for focus—same pupil rule always. Optional thin curved “spectacle” arc as a single 2px stroke around both eyes—if used, always the same arc; if not used, never add later.
+Beak: One downward-pointing triangle or soft diamond, centered; same size and angle on every screen.
+Wings: Minimal—two rounded triangles or half-circles flush to the body, no finger feathers.
+Feet (optional): Tiny three-line perch or omit for clarity at small sizes—lock per theme (either always on or always off).
+Mini-briefcase (signature prop): Always present when the mascot appears. Compact horizontal rounded rectangle with one small handle arc on top; single vertical line or slight latch notch for detail—no buckles, stickers, or logos. Held at the side (one wing implied as support) or in front at chest height—same default grip on A/B; other screens may rotate ≤15° but same case proportions. Fill: ink text.primary in light mode; ivory or surface.elevated-adjacent in dark mode—same geometry every time.
+Line / fill rules (match SF icon weight): 2.0px stroke on outer contours; flat fills for eyes (white/ivory), pupils (ink or charcoal), beak (optional gold #C7A35A only for beak—if chosen, always); briefcase as solid fill or stroke + subtle fill—one system per theme, consistent everywhere.
+Color (plumage): Light mode: warm charcoal #3D3835 strokes with soft cream #F0E8DC belly circle or stroke-only—pick one and keep consistent. Dark mode: ivory/cream #F6F2EA on charcoal #0E1117 surfaces—same silhouette. Optional tiny teal #0F766E accent only as spectacle stroke or one wing highlight—if used, same placement/size rules on every frame.
+Size on screen: Onboarding A/B: owl + bubble ≤ ~18% viewport height total. Empty/error states: may be slightly larger but same construction—never a detailed illustration pass.
+Name for annotations (optional): “Noa”—designer notes only; UI copy need not use the name.
+NON-GOALS / “NOT THIS”
+Not generic default-iOS “bright blue on white cards everywhere.”
+Not neon/gamer gradients, not heavy glassmorphism, not cluttered dashboards.
+Not mixed illustration styles.
+Not “marketing landing page” height in a single mobile frame.
+ART DIRECTION (LOCK ONE SYSTEM) — NEXTINTERVIEW
+Theme: “Editorial Career Studio” (premium utility, interview-forward)
+Base: warm off-white #F6F2EA + ink text OR deep charcoal #0E1117 + ivory text (generate BOTH light+dark for: Home, Comparison, Credits).
+Surfaces: subtle warm lift (light) or slightly lighter charcoal (dark).
+Accents:
+Primary accent: Teal #0F766E (light) / #2DD4BF (dark, sparingly)
+Secondary (credits moments only): Gold #C7A35A (sparingly)
+Borders: hairline 1px rgba(0,0,0,0.08) light / rgba(255,255,255,0.10) dark
+Shadows (max 3 elevations):
+E0 flat
+E1 card: 0 8 24 rgba(0,0,0,0.08)
+E2 modal: 0 16 48 rgba(0,0,0,0.12)
+Corner radii: Button 14px, Card 20px, Sheet top 24px, Tab pill 28px
+Iconography: SF Symbols–like stroke 2.0px, 20/24 only; Noa uses the same stroke weight and flat-fill discipline as icons—one illustration system only.
+DESIGN TOKENS (MUST BE CONSISTENT ACROSS ALL FRAMES)
+Spacing scale (4pt grid): 4, 8, 12, 16, 20, 24, 32, 40
+Layout gutters: 20 horizontal; content column = device width minus gutters
+Tap targets: minimum 44×44 for all interactive controls
+TYPOGRAPHY (SF PRO)
+Display 28/34 max — onboarding hero only (do not eat viewport)
+Title1 24/30 — screen titles
+Title2 20/26 — section headers
+Headline 17/22 semibold — card titles
+Body 15/22 regular — compare / body
+Callout 14/20 medium — buttons + key labels
+Footnote 13/18 regular — helper text
+Caption1 12/16 regular — metadata, per-credit math
+Numbers/prices: tabular lining figures; currency right-aligned
+SEMANTIC COLOR ROLES (ANNOTATE)
+text.primary, text.secondary, text.tertiary
+surface.base, surface.elevated
+border.subtle
+accent.primary, accent.primaryPressed (10% darker)
+accent.gold (credits)
+danger, warning, success
+focusRing: 2px accent.primary @ 35% opacity
+COMPONENT INVENTORY (REUSE)
+PrimaryButton, SecondaryButton, DestructiveButton (rare)
+IconButton 44×44
+TextField, TextArea (helper + error)
+Card, SectionHeader, ListRow, Badge, Banner(Info|Warning)
+SegmentedPagerDots, FloatingTabBar (3 tabs)
+Modal/Sheet, Toast, InlineError, SkeletonBlock, ProgressBar
+INTERACTION + MOTION LANGUAGE
+Pressed: scale 0.98 + opacity 0.92 OR darken fill 8% (one system)
+Transitions: 180–240ms; cubic-bezier(0.2, 0.8, 0.2, 1)
+Loading: skeletons for History; progress screen = determinate bar + rotating status lines
+Success: toast + haptic “success”
+Reduced motion: note instant-state alternative
+STATE COVERAGE
+PrimaryButton: default / pressed / disabled / loading
+TextArea: empty / filled / error / disabled
+Credits: sufficient / zero (banner)
+History: empty / populated
+Network: Home inline retry + full-screen retry on processing failure
+ACCESSIBILITY BAR
+WCAG AA intent for body; stricter for Caption1
+Dynamic Type: largest sizes—titles wrap; prices readable; buttons may go two lines
+Icon-only controls: accessibilityLabel in annotations
+CONTENT (REALISTIC, SHORT IN UI)
+Job description in UI: ~3 lines max in previews
+Resume in UI: 2 bullets max in previews; full text = sheet later
+Microcopy: encouraging, interview-forward
+DELIVERABLE (FRAMES — LABEL IN-CORNER, NARRATIVE ORDER)
+Each item = exactly one iPhone viewport unless …ScrollState second frame is added.
+A) Onboarding_1_Welcome — outcome headline + short body; Noa + bubble (benefit-first); pager dots; Continue + Skip; no tab bar.
+B) Onboarding_2_ReviewCompare — compact proof (segmented Original|Rewritten OR pager); same Noa + bubble (different 12-word line); Continue + Skip; no tab bar; no endless stacks.
+C) Onboarding_3_CreditsIntro — short; unlock framing; Get started + Skip; no tab bar.
+D) Paywall_SelectPack — 4 tiers (1/5/15/50); selected state; Purchase {N} Credits; Skip; sticky purchase if needed.
+E) Home_Dashboard — title + tagline; credits card; primary “Tailor for a job” (consistent); tips; History retention line; tab bar ON.
+F) Flow_JobDescription_Paste — large field + helper + trust line; Next sticky bottom.
+G) Flow_Resume_Paste — same.
+H) Flow_Processing_Analyzing — progress + Cancel.
+I) Flow_Results_Comparison — compact compare + sticky Copy / Save / Refine (Refine disabled if 0 credits—note).
+J) History_Empty — encouraging copy (optional: same Noa, neutral pose + briefcase—identical spec).
+K) History_Populated — 3 rows.
+L) Credits_Hub_Balance — annotate zero vs sufficient.
+M) Credits_PurchaseCards + compact “How credits work” (3 short bullets).
+N) System_Error_ProcessingRetry
+O) System_InsufficientCredits_Modal — CTA to Credits.
+OPTIONAL
+P) Onboarding_QuickFit_Chips — chips + Skip; single primary CTA; no tab bar (optional Noa if space—same spec).
+ANNOTATIONS (PER FRAME)
+Mark SCROLL_BODY vs STICKY_FOOTER regions for Rork handoff
+2–4 spacing callouts
+Primary action singularity
+History row truncation rules
+Onboarding: tag lessons (benefit-first, Noa + briefcase consistency, proof, trust, paywall chapter)
+QUALITY BAR
+Top App Store productivity tier; memorable NextInterview brand; every frame looks like a real iPhone screen, not a poster.
